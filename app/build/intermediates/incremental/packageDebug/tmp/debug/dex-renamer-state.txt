@@ -1,0 +1,10 @@
+#Mon Oct 11 22:41:05 KST 2021
+base.2=C\:\\Users\\ADMIN\\Desktop\\Tree.tar\\Tree\\App\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
+path.2=6/classes.dex
+base.1=C\:\\Users\\ADMIN\\Desktop\\Tree.tar\\Tree\\App\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+path.1=0/classes.dex
+base.0=C\:\\Users\\ADMIN\\Desktop\\Tree.tar\\Tree\\App\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex
