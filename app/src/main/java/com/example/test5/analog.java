@@ -37,6 +37,7 @@ public class analog extends AppCompatActivity {
         Button start_btn = (Button) findViewById(R.id.analog_startbtn);
         Button stop_btn = (Button) findViewById(R.id.analog_stopbtn);
         EditText ipaddr = (EditText) findViewById(R.id.analog_addr_edit);
+        EditText device = (EditText) findViewById(R.id.analog_device_edit);
         EditText rotation = (EditText) findViewById(R.id.analog_rotation_edit);
         EditText minimum = (EditText) findViewById(R.id.analog_minimum_edit);
         EditText maximum = (EditText) findViewById(R.id.analog_maximum_edit);
@@ -58,6 +59,7 @@ public class analog extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Connect 완료", Toast.LENGTH_SHORT).show();
 
+                String device_val = device.getText().toString();
                 String rotation_val = rotation.getText().toString();
                 String minimum_val = minimum.getText().toString();
                 String maximum_val = maximum.getText().toString();
@@ -65,7 +67,7 @@ public class analog extends AppCompatActivity {
                 String maxangle_val = maxangle.getText().toString();
                 String minangle_val = minangle.getText().toString();
 
-                String send_data = "restart_analog/" + rotation_val + "/" + unit_val + "/" + minimum_val + "/" + maximum_val + "/" + minangle_val + "/" + maxangle_val;
+                String send_data = "restart_analog/" + device_val + "/" + rotation_val + "/" + unit_val + "/" + minimum_val + "/" + maximum_val + "/" + minangle_val + "/" + maxangle_val;
 
                 thread.sendName(send_data);
                 thread.getStream(send_data);

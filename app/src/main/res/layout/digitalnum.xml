@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="76dp"
         android:orientation="vertical">
 
 
@@ -43,6 +43,15 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="아이피 주소"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/digitalnum_device_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="기기 이름"
             android:inputType="textPersonName" />
 
         <EditText

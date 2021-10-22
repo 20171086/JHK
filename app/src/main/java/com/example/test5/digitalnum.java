@@ -38,6 +38,7 @@ public class digitalnum extends AppCompatActivity {
         Button start_btn = (Button) findViewById(R.id.digitalnum_startbtn);
         Button stop_btn = (Button) findViewById(R.id.digitalnum_stopbtn);
         EditText ipaddr = (EditText) findViewById(R.id.digitalnum_addr_edit);
+        EditText device = (EditText) findViewById(R.id.digitalnum_device_edit);
         EditText rotation = (EditText) findViewById(R.id.digitalnum_rotation_edit);
         EditText boxnum = (EditText) findViewById(R.id.digitalnum_boxnum_edit);
         EditText boxscale = (EditText) findViewById(R.id.digitalnum_boxscale_edit);
@@ -57,12 +58,13 @@ public class digitalnum extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Connect 완료", Toast.LENGTH_SHORT).show();
 
+                String device_val = device.getText().toString();
                 String rotation_val = rotation.getText().toString();
                 String boxnum_val = boxnum.getText().toString();
                 String boxscale_val = boxscale.getText().toString();
                 String boxpos_val = boxpos.getText().toString();
 
-                String send_data = "restart_digital/" + rotation_val + "/" + boxnum_val + "/" + boxscale_val + "/" + boxpos_val;
+                String send_data = "restart_digital/" + device_val + "/" + rotation_val + "/" + boxnum_val + "/" + boxscale_val + "/" + boxpos_val;
 
                 thread.sendName(send_data);
                 thread.getStream(send_data);
