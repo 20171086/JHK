@@ -4,6 +4,24 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ADMIN/Desktop/App/app/src/main/res/layout/digitalnum.xml" value="0.3416666666666667" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/activity_device_list.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/activity_main.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/analog.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/bluetooth_chat.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/datapage.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/device_name.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/digitalnum.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/fragment_bluetooth_chat.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/item_recycler_view.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/popwindow.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/setting.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/settingpage_setting.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/stm32.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/layout/stm32_layout.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/menu/bluetooth_chat.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/ADMIN/Desktop/JHK/app/src/main/res/menu/main.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/ADMIN/Desktop/Tree.tar/Tree/App/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/Desktop/Tree.tar/Tree/App/app/src/main/res/layout/analog.xml" value="0.33" />
         <entry key="..\:/Users/ADMIN/Desktop/Tree.tar/Tree/App/app/src/main/res/layout/datapage.xml" value="0.33" />

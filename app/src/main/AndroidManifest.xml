@@ -24,10 +24,16 @@
         <activity android:name=".setting"/>
         <activity android:name=".digitalnum"/>
         <activity android:name=".analog"/>
-        <activity android:name=".stm32"/>
+        <activity android:name=".stm32_layout"/>
         <activity
             android:name=".Pop"
             android:theme="@android:style/Theme.Dialog"/>
+        <activity
+            android:name=".DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_device"
+            android:theme="@android:style/Theme.Holo.Dialog"
+            android:screenOrientation="portrait"/>
 
     </application>
 
