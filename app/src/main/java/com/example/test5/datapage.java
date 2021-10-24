@@ -102,6 +102,50 @@ public class datapage extends AppCompatActivity {
                                         }
                                     });
                                 }
+                                if(cat.equals("Digital"))
+                                {
+                                    readData(value, new MyCallback3() {
+                                        @Override
+                                        public void onCallback(ArrayList v1, ArrayList v2) {
+                                            ArrayList<String> reclist = new ArrayList<String>();
+                                            for(int i=0; i<v1.size(); i++)
+                                            {
+                                                if(v1.get(i).equals("IP"))
+                                                {
+                                                    //don't show IP
+                                                }
+                                                else
+                                                {
+                                                    reclist.add(v1.get(i).toString() + ":" + v2.get(i).toString());
+                                                }
+                                            }
+                                            Log.d("EXDATA", reclist.toString());
+                                            recyclerView.setAdapter(new RecyclerAdapter(reclist));
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    readData(value, new MyCallback3() {
+                                        @Override
+                                        public void onCallback(ArrayList v1, ArrayList v2) {
+                                            ArrayList<String> reclist = new ArrayList<String>();
+                                            for(int i=0; i<v1.size(); i++)
+                                            {
+                                                if(v1.get(i).equals("IP"))
+                                                {
+                                                    //don't show IP
+                                                }
+                                                else
+                                                {
+                                                    reclist.add(v1.get(i).toString() + ":" + v2.get(i).toString());
+                                                }
+                                            }
+                                            Log.d("EXDATA", reclist.toString());
+                                            recyclerView.setAdapter(new RecyclerAdapter(reclist));
+                                        }
+                                    });
+                                }
                             }
                         });
                     }
