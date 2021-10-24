@@ -3,6 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/analog_device_image"/>
+
+    <Button
+        android:id="@+id/analog_loadbtn"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="75dp"
+        android:text="불러오기"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/analog_startbtn"
@@ -12,7 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="134dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="110dp"
         android:text="저장"
         android:textSize="18sp" />
 
@@ -24,7 +40,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="134dp"
-        android:layout_marginBottom="47dp"
+        android:layout_marginBottom="40dp"
         android:text="정지"
         android:textSize="18sp" />
 

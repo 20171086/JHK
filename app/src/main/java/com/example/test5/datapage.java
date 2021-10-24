@@ -75,13 +75,21 @@ public class datapage extends AppCompatActivity {
                             @Override
                             public void onCallback(String value) {
                                 sel_name.setText(value);
-                                readData(value, new MyCallback() {
-                                    @Override
-                                    public void onCallback(ArrayList value) {
-                                        Log.d("EXDATA", value.toString());
-                                        recyclerView.setAdapter(new RecyclerAdapter(value));
-                                    }
-                                });
+                                String cat = value.split("_")[0];
+                                if(cat.equals("Analog"))
+                                {
+                                    readData(value, new MyCallback() {
+                                        @Override
+                                        public void onCallback(ArrayList value) {
+                                            ArrayList<String> reclist = new ArrayList<String>();
+                                            for (Object i: value) {
+                                                reclist.add(String.valueOf(i));
+                                            }
+                                            Log.d("EXDATA", value.toString());
+                                            recyclerView.setAdapter(new RecyclerAdapter(value));
+                                        }
+                                    });
+                                }
                             }
                         });
                     }
@@ -91,13 +99,14 @@ public class datapage extends AppCompatActivity {
     }
 
     private void readData(String name, MyCallback myCallback){
-        mDatabase.child("sensors").child(name).addValueEventListener(new ValueEventListener() {
+        mDatabase.child(name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                ArrayList post = (ArrayList) dataSnapshot.getValue();
-                myCallback.onCallback(post);
-                Log.w("FireBaseData", "getData" + post.toString());
+                HashMap post = (HashMap) dataSnapshot.getValue();
+                ArrayList result = new ArrayList(post.values());
+                myCallback.onCallback(result);
+                Log.w("FireBaseData", "getData" + result.toString());
             }
 
             @Override
@@ -109,7 +118,7 @@ public class datapage extends AppCompatActivity {
     }
 
     private void readSensors(MyCallback myCallback){
-        mDatabase.child("sensors").addValueEventListener(new ValueEventListener() {
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI

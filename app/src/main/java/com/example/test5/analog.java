@@ -1,5 +1,7 @@
 package com.example.test5;
 
+import android.app.AlertDialog;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -7,10 +9,23 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -21,11 +36,11 @@ import java.net.UnknownHostException;
 
 public class analog extends AppCompatActivity {
 
-    String name;
+    private DatabaseReference mDatabase;
 
-    EditText nameInput;
-
-    Button button;
+    public interface MyCallback1 {
+        void onCallback(String value);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,8 +48,11 @@ public class analog extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.analog);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         //contents
         Button start_btn = (Button) findViewById(R.id.analog_startbtn);
+        Button load_btn = (Button) findViewById(R.id.analog_loadbtn);
         Button stop_btn = (Button) findViewById(R.id.analog_stopbtn);
         EditText ipaddr = (EditText) findViewById(R.id.analog_addr_edit);
         EditText device = (EditText) findViewById(R.id.analog_device_edit);
@@ -44,6 +62,21 @@ public class analog extends AppCompatActivity {
         EditText unit = (EditText) findViewById(R.id.analog_unit_edit);
         EditText minangle = (EditText) findViewById(R.id.analog_minangle_edit);
         EditText maxangle = (EditText) findViewById(R.id.analog_maxangle_edit);
+
+        load_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                readIP(new digitalnum.MyCallback1() {
+                    @Override
+                    public void onCallback(String ip) {
+                        Log.d("DG_IP", ip);
+                        ipaddr.setText(ip);
+                    }
+                });
+                showImage();
+            }
+        });
 
         //save values and start raspberrypi
         start_btn.setOnClickListener(new View.OnClickListener()
@@ -98,6 +131,47 @@ public class analog extends AppCompatActivity {
                 thread.start();
 
                 finish();
+            }
+        });
+    }
+    private void showImage(){
+        ImageView device_image =(ImageView) findViewById(R.id.analog_device_image);
+        AlertDialog.Builder popupDialogBuilder = new AlertDialog.Builder(this);
+
+        FirebaseStorage storage = FirebaseStorage.getInstance("gs://tree-afca6.appspot.com/");
+        StorageReference storageRef = storage.getReference();
+        storageRef.child("analog.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                //이미지 로드 성공시
+
+                Glide.with(getApplicationContext())
+                        .load(uri)
+                        .into(device_image);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                //이미지 로드 실패시
+                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void readIP(digitalnum.MyCallback1 myCallback){
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                String post = dataSnapshot.child("IP").getValue(String.class);
+                myCallback.onCallback(post);
+                Log.w("FireBaseData", "getData" + post);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("FireBaseData", "loadPost:onCancelled", databaseError.toException());
             }
         });
     }
