@@ -32,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,6 +45,9 @@ public class datapage extends AppCompatActivity {
     }
     public interface MyCallback2 {
         void onCallback(String value);
+    }
+    public interface MyCallback3 {
+        void onCallback(ArrayList v1, ArrayList v2);
     }
 
     @Override
@@ -78,15 +82,23 @@ public class datapage extends AppCompatActivity {
                                 String cat = value.split("_")[0];
                                 if(cat.equals("Analog"))
                                 {
-                                    readData(value, new MyCallback() {
+                                    readData(value, new MyCallback3() {
                                         @Override
-                                        public void onCallback(ArrayList value) {
+                                        public void onCallback(ArrayList v1, ArrayList v2) {
                                             ArrayList<String> reclist = new ArrayList<String>();
-                                            for (Object i: value) {
-                                                reclist.add(String.valueOf(i));
+                                            for(int i=0; i<v1.size(); i++)
+                                            {
+                                                if(v1.get(i).equals("IP"))
+                                                {
+                                                    //don't show IP
+                                                }
+                                                else
+                                                {
+                                                    reclist.add(v1.get(i).toString() + ":" + v2.get(i).toString());
+                                                }
                                             }
-                                            Log.d("EXDATA", value.toString());
-                                            recyclerView.setAdapter(new RecyclerAdapter(value));
+                                            Log.d("EXDATA", reclist.toString());
+                                            recyclerView.setAdapter(new RecyclerAdapter(reclist));
                                         }
                                     });
                                 }
@@ -98,15 +110,16 @@ public class datapage extends AppCompatActivity {
         });
     }
 
-    private void readData(String name, MyCallback myCallback){
+    private void readData(String name, MyCallback3 myCallback){
         mDatabase.child(name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
                 HashMap post = (HashMap) dataSnapshot.getValue();
-                ArrayList result = new ArrayList(post.values());
-                myCallback.onCallback(result);
-                Log.w("FireBaseData", "getData" + result.toString());
+                ArrayList result2 = new ArrayList(post.values());
+                ArrayList result1 = new ArrayList(post.keySet());
+                myCallback.onCallback(result1, result2);
+                Log.w("FireBaseData", "getData" + result2.toString());
             }
 
             @Override
