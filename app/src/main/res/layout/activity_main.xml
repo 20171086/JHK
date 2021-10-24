@@ -7,28 +7,24 @@
 
     <Button
         android:id="@+id/datapagebtn"
-        android:layout_width="308dp"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="300dp"
+        android:layout_height="105dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="405dp"
+        android:gravity="center"
+        android:layout_marginTop="400dp"
         android:text="데이터 조회"
-        android:textSize="20sp"
+        android:textSize="26sp"
         />
 
     <Button
         android:id="@+id/settingpagebtn"
-        android:layout_width="308dp"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="300dp"
+        android:layout_height="105dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="142dp"
+        android:gravity="center"
+        android:layout_marginTop="220dp"
         android:text="세팅"
-        android:textSize="20sp" />
+        android:textSize="26sp" />
 
     <Button
         android:id="@+id/userBtn"

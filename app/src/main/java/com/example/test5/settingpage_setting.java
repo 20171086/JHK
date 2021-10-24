@@ -6,13 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 public class settingpage_setting extends Fragment {
 
@@ -50,10 +46,11 @@ public class settingpage_setting extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity().getApplicationContext(), stm32.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), stm32_layout.class);
                 startActivity(intent);
             }
         });
         return view;
     }
+
 }
