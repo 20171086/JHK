@@ -59,11 +59,22 @@ public class datapage extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         Button btnpop = (Button) findViewById(R.id.sensorbtn);
+        Button btnclear = (Button) findViewById(R.id.clearbtn);
         TextView sel_name = (TextView) findViewById(R.id.selected);
+        TextView sel_ip = (TextView) findViewById(R.id.selected_ip);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new RecyclerAdapter(new ArrayList()));
+
+        btnclear.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                recyclerView.setAdapter(new RecyclerAdapter(new ArrayList()));
+            }
+
+        });
 
         btnpop.setOnClickListener(new View.OnClickListener()
         {
@@ -90,7 +101,8 @@ public class datapage extends AppCompatActivity {
                                             {
                                                 if(v1.get(i).equals("IP"))
                                                 {
-                                                    //don't show IP
+                                                    //show through textview
+                                                    sel_ip.setText(v2.get(i).toString());
                                                 }
                                                 else
                                                 {
@@ -112,7 +124,7 @@ public class datapage extends AppCompatActivity {
                                             {
                                                 if(v1.get(i).equals("IP"))
                                                 {
-                                                    //don't show IP
+                                                    sel_ip.setText(v2.get(i).toString());
                                                 }
                                                 else
                                                 {

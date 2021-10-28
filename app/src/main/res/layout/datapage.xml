@@ -17,8 +17,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="78dp"
         android:text="센서"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/clearbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="128dp"
+        android:text="CLEAR"
         android:textSize="18sp" />
 
     <TextView
@@ -29,6 +38,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="Selected Sensor" />
+
+    <TextView
+        android:id="@+id/selected_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Selected IP" />
 
 
 </RelativeLayout>
