@@ -25,6 +25,7 @@
         <activity android:name=".digitalnum"/>
         <activity android:name=".analog"/>
         <activity android:name=".stm32_layout"/>
+        <activity android:name=".imageScreen"/>
         <activity
             android:name=".Pop"
             android:theme="@android:style/Theme.Dialog"/>

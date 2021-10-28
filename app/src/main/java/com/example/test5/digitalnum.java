@@ -52,6 +52,10 @@ public class digitalnum extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.digitalnum);
 
+        Intent intent = new Intent(getApplicationContext(), imageScreen.class);
+        intent.putExtra("file_name", "digital0.png");
+        startActivity(intent);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         //contents
