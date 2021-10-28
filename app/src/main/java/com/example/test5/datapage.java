@@ -193,6 +193,10 @@ public class datapage extends AppCompatActivity {
                 // Get Post object and use the values to update the UI
                 HashMap post = (HashMap) dataSnapshot.getValue();
                 ArrayList keys = new ArrayList(post.keySet());
+                if(keys.contains("IP"))
+                {
+                    keys.remove("IP");
+                }
                 myCallback.onCallback(keys);
                 Log.w("FireBaseData", "getData" + keys.toString());
             }
