@@ -34,6 +34,7 @@ import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -150,7 +151,9 @@ public class datapage extends AppCompatActivity {
                                                 }
                                                 else
                                                 {
-                                                    reclist.add(v1.get(i).toString() + ":" + v2.get(i).toString());
+                                                    List<String> myList = new ArrayList<String>(Arrays.asList(v2.get(i).toString().split(",")));
+                                                    myList.remove(0);
+                                                    reclist.add(myList.toString().replace("[", "").replace("]", ""));
                                                 }
                                             }
                                             Log.d("EXDATA", reclist.toString());
